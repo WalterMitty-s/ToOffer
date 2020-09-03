@@ -1,56 +1,12 @@
 package com.company;
 
-import com.sun.xml.internal.txw2.output.IndentingXMLFilter;
-
+import java.sql.*;
 import java.util.*;
 
 
 public class Main {
+    public static void main(String[] args){
 
-    public static void main(String[] args) {
-	// write your code here
-        Solution46 solution46=new Solution46();
-        int m=solution46.LastRemaining_Solution(0,0);
-        System.out.println("return value is: "+m);
-    }
-}
-
-
-
-class Solution2 {
-    //方法一：使用库函数
-    public String replaceSpace(StringBuffer str) {
-        String result=str.toString().replace(" ","20%");
-
-        return result;
-    }
-    //方法二：使用数组
-    /*
-        1.由后往前遍历记录空格总数
-        2.依次替换空格
-     */
-    public String replaceSpace2(StringBuffer str) {
-        int isr=0;
-        for(int i=0;i<str.length();i++){
-            if(str.charAt(i)==' ')
-                isr++;
-        }
-        int oldLength=str.length();
-        int oldIndex=str.length()-1;
-        int newLength=str.length()+2*isr;
-        int newIndex=newLength-1;
-        str.setLength(newLength);
-        for(;oldIndex>=0&&oldLength<newLength;oldIndex--){
-            if(str.charAt(oldIndex)!=' ')
-                str.setCharAt(newIndex--,str.charAt(oldIndex));
-            else{
-                str.setCharAt(newIndex--,'0');
-                str.setCharAt(newIndex--,'2');
-                str.setCharAt(newIndex--,'%');
-            }
-        }
-
-        return str.toString();
     }
 }
 
@@ -62,26 +18,6 @@ class ListNode {
         this.val = val;
     }
 }
-
-
-
-class SolutionJZ3 {
-    //使用栈
-    public static ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        ArrayList<Integer> arrayList=new ArrayList<>();
-        Stack<Integer> stack=new Stack<>();
-        while(listNode!=null){
-            stack.push(listNode.val);
-            listNode=listNode.next;
-        }
-        while(!stack.empty()){
-            arrayList.add(stack.peek());
-            stack.pop();
-        }
-        return arrayList;
-    }
-}
-
 class TreeNode {
      int val;
      TreeNode left;
@@ -89,51 +25,8 @@ class TreeNode {
      TreeNode(int x) { val = x; }
 }
 
-class SolutionJZ4 {
-    //使用递归
-    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
-        if(pre.length==0||in.length==0)
-            return null;
-        TreeNode treeNode=new TreeNode(pre[0]);
-        for(int i=0;i<in.length;i++){
-            //Arrays.copyOfRange()左闭右开
-            if(in[i]==pre[0]){
-                treeNode.left=reConstructBinaryTree(Arrays.copyOfRange(pre,1,i+1),Arrays.copyOfRange(in,0,i));
-                treeNode.right=reConstructBinaryTree(Arrays.copyOfRange(pre,i+1,pre.length),Arrays.copyOfRange(in,i+1,in.length));
-                break;
-            }
-        }
-        return treeNode;
-    }
-}
 
-class SolutionJZ5 {
-    Stack<Integer> stack1 = new Stack<Integer>();
-    Stack<Integer> stack2 = new Stack<Integer>();
 
-    public void push(int node) {
-        stack1.push(node);
-    }
-
-    public int pop() {
-        int num=0;
-        if(!stack2.empty()){
-            num=stack2.peek();
-            stack2.pop();
-        }
-        else {
-            if(!stack1.empty()){
-                while(!stack1.empty()){
-                    stack2.push(stack1.peek());
-                    stack1.pop();
-                }
-                num=stack2.peek();
-                stack2.pop();
-            }
-        }
-        return num;
-    }
-}
 class SolutionJZ6 {
     public int minNumberInRotateArray(int [] array) {
         int head=0,tail=array.length-1;
