@@ -22,16 +22,17 @@ class TreeNode {
      TreeNode right;
      TreeNode(int x) { val = x; }
 }
+class TreeLinkNode {
+    int val;
+    TreeLinkNode left = null;
+    TreeLinkNode right = null;
+    TreeLinkNode next = null;
 
-
-class SolutionJZ8 {
-    public int JumpFloor(int target) {
-        if(target==1||target==0)
-            return target;
-        return JumpFloor(target-1)+JumpFloor(target-2);
-
+    TreeLinkNode(int val) {
+        this.val = val;
     }
 }
+
 
 class SolutionJZ11 {
     //方法一：
@@ -76,7 +77,6 @@ class SolutionJZ12 {
     }
 
 }
-
 class SolutionJZ13 {
     /**
      *
@@ -98,16 +98,6 @@ class SolutionJZ13 {
         }
     }
 }
-
-/*class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-
 class SolutionJZ14 {
     /**
      * 快慢指针，只需要遍历一次链表
@@ -136,7 +126,6 @@ class SolutionJZ14 {
         return q;
     }
 }
-
 class SolutionJZ15 {
     public ListNode ReverseList(ListNode head) {
         ListNode p=head;
@@ -155,7 +144,6 @@ class SolutionJZ15 {
         return p;
     }
 }
-
 class SolutionJZ16 {
     /**
      public class TreeNode {
@@ -230,7 +218,6 @@ class SolutionJZ16 {
     }
 
 }
-
 class SolutionJZ18 {
     public void Mirror(TreeNode root) {
         TreeNode temp=null;
@@ -706,16 +693,6 @@ class SolutionJZ55 {
             }
             return fast;
         }
-}
-class TreeLinkNode {
-    int val;
-    TreeLinkNode left = null;
-    TreeLinkNode right = null;
-    TreeLinkNode next = null;
-
-    TreeLinkNode(int val) {
-        this.val = val;
-    }
 }
 class SolutionJZ57 {
     /*
