@@ -3,9 +3,10 @@ package com.company;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
+
 }
 
 class ListNode {
@@ -33,71 +34,6 @@ class TreeLinkNode {
     }
 }
 
-
-class SolutionJZ11 {
-    //方法一：
-    public int NumberOf1(int n) {
-        int num=0;
-        while(n!=0){
-            num++;
-            n=n&(n-1);
-        }
-        return num;
-    }
-
-    //方法二：
-    public int NumberOf2(int n) {
-        int num=0;
-        String nstring=Integer.toBinaryString(n);
-        String[] strings=nstring.split("");
-        for(int i=0;i<strings.length;i++){
-            if(strings[i].equals("1"))
-                num++;
-        }
-        return num;
-    }
-}
-class SolutionJZ12 {
-    /**
-     * 暴力解法
-     * @param base
-     * @param exponent
-     * @return result
-     */
-    public double Power(double base, int exponent) {
-        if(exponent<0){
-            base=1/base;
-            exponent=-exponent;
-        }
-        double result=1.0;
-        for(int i=0;i<exponent;i++){
-            result=base*result;
-        }
-        return result;
-    }
-
-}
-class SolutionJZ13 {
-    /**
-     *
-     * @param array
-     */
-    public void reOrderArray(int [] array) {
-        int[] result=new int[array.length];
-        for(int i=0;i<array.length;i++){
-            result[i]=array[i];
-        }
-        int m=0;
-        for(int i=0;i<array.length;i++){
-            if(result[i]%2!=0)
-                array[m++]=result[i];
-        }
-        for(int i=0;i<array.length;i++){
-            if(result[i]%2==0)
-                array[m++]=result[i];
-        }
-    }
-}
 class SolutionJZ14 {
     /**
      * 快慢指针，只需要遍历一次链表
