@@ -34,52 +34,7 @@ class TreeLinkNode {
     }
 }
 
-class SolutionJZ14 {
-    /**
-     * 快慢指针，只需要遍历一次链表
-     * @param head
-     * @param k
-     * @return
-     */
-    public ListNode FindKthToTail(ListNode head,int k) {
-        if(head==null||k==0)
-            return null;
-        ListNode p=head;
-        ListNode q=null;
-        for(int i=0;i<k-1;i++){
-            if(p.next!=null){
-                p=p.next;
-            }
-            else {
-                return null;
-            }
-        }
-        q=head;
-        while(p.next!=null){
-            p=p.next;
-            q=q.next;
-        }
-        return q;
-    }
-}
-class SolutionJZ15 {
-    public ListNode ReverseList(ListNode head) {
-        ListNode p=head;
-        Queue<ListNode> queue=new LinkedList<>();
-        while(p!=null){
-            queue.add(p);
-            p=p.next;
-        }
-        p=null;
-        while (!queue.isEmpty()){
-            queue.peek().next=p;
-            p=queue.peek();
-            queue.poll();
 
-        }
-        return p;
-    }
-}
 class SolutionJZ16 {
     /**
      public class TreeNode {
