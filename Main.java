@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        List<Integer> list=new LinkedList<>();
+
 
     }
 
@@ -34,99 +36,6 @@ class TreeLinkNode {
     }
 }
 
-
-class SolutionJZ18 {
-    public void Mirror(TreeNode root) {
-        TreeNode temp=null;
-        if(root!=null){
-            temp=root.left;
-            root.left=root.right;
-            root.right=temp;
-            Mirror(root.left);
-            Mirror(root.right);
-        }
-    }
-}
-
-class SolutionJZ19 {
-    public ArrayList<Integer> printMatrix(int [][] matrix) {
-        ArrayList<Integer> arrayList=new ArrayList<>();
-        if(matrix==null||matrix.length==0||matrix[0].length==0)
-            return arrayList;
-        //定义四个值up,down,left,right
-        int up,down,left,right;
-        up=0;
-        down=matrix.length-1;
-        left=0;
-        right=matrix[0].length-1;
-        while(true){
-            //最上面一行
-            for(int col=left;col<=right;col++){
-                arrayList.add(matrix[up][col]);
-            }
-            //向下逼近
-            up++;
-            if(up>down)
-                break;
-            //最右面一行
-            for(int row=up;row<=down;row++){
-                arrayList.add(matrix[row][right]);
-            }
-            //向左逼近
-            right--;
-            if(left>right)
-                break;
-            //最下面一行
-            for(int col=right;col>=left;col--){
-                arrayList.add(matrix[down][col]);
-            }
-            //向上逼近
-            down--;
-            if(up>down)
-                break;
-            for(int row=down;row>=up;row--){
-                arrayList.add(matrix[row][left]);
-            }
-            //向右逼近
-            left++;
-            if(left>right)
-                break;
-        }
-        return arrayList;
-    }
-}
-
-class SolutionJZ20 {
-    Stack<Integer> normal=new Stack<>();
-    Stack<Integer> minval=new Stack<>();
-
-    public void push(int node) {
-        if(normal.empty()){
-            normal.push(node);
-            minval.push(node);
-        }
-        else{
-            normal.push(node);
-            if(minval.peek()>node)
-                minval.push(node);
-            else
-                minval.push(minval.peek());
-        }
-    }
-
-    public void pop() {
-        normal.pop();
-        minval.pop();
-    }
-
-    public int top() {
-        return normal.peek();
-    }
-
-    public int min() {
-        return minval.peek();
-    }
-}
 
 class SolutionJZ21 {
     public boolean IsPopOrder(int [] pushA,int [] popA) {
@@ -167,7 +76,6 @@ class SolutionJZ22 {
         return arrayList;
     }
 }
-
 class SolutionJZ23 {
     public boolean VerifySquenceOfBST(int [] sequence) {
         int len = sequence.length;
@@ -187,7 +95,6 @@ class SolutionJZ23 {
         return left && right;
     }
 }
-
 class SolutionJZ24 {
     private ArrayList<ArrayList<Integer>> result=new ArrayList<>();
     private ArrayList<Integer> path = new ArrayList<>();
@@ -205,7 +112,6 @@ class SolutionJZ24 {
         return result;
     }
 }
-
 class RandomListNode {
     int label;
     RandomListNode next = null;
