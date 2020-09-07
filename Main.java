@@ -4,11 +4,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list=new LinkedList<>();
-
 
     }
-
 }
 
 class ListNode {
@@ -35,28 +32,16 @@ class TreeLinkNode {
         this.val = val;
     }
 }
+class RandomListNode {
+    int label;
+    RandomListNode next = null;
+    RandomListNode random = null;
 
-
-class SolutionJZ21 {
-    public boolean IsPopOrder(int [] pushA,int [] popA) {
-        Stack<Integer> stack=new Stack<>();
-        int i=0,j=0;
-        while(i<pushA.length){
-            if(pushA[i]!=popA[j]){
-                stack.push(pushA[i++]);
-            }
-            else {
-                ++i;
-                ++j;
-                while(!stack.empty()&&stack.peek()==popA[j]){
-                    stack.pop();
-                    ++j;
-                }
-            }
-        }
-        return stack.empty();
+    RandomListNode(int label) {
+        this.label = label;
     }
 }
+
 class SolutionJZ22 {
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         Queue<TreeNode> queue=new LinkedList<>() ;
@@ -112,16 +97,6 @@ class SolutionJZ24 {
         return result;
     }
 }
-class RandomListNode {
-    int label;
-    RandomListNode next = null;
-    RandomListNode random = null;
-
-    RandomListNode(int label) {
-        this.label = label;
-    }
-}
-
 class SolutionJZ25 {
     public RandomListNode Clone(RandomListNode pHead) {
         cloneNodes(pHead);
@@ -176,7 +151,6 @@ class SolutionJZ25 {
         return pClonedHead;
     }
 }
-
 class SolutionJZ26 {
 
     public TreeNode Convert(TreeNode pRootOfTree) {
@@ -210,7 +184,6 @@ class SolutionJZ26 {
     }
 
 }
-
 class SolutionJZ28 {
     public int MoreThanHalfNum_Solution(int [] array) {
         int[] temp=new int[array.length];
@@ -230,7 +203,6 @@ class SolutionJZ28 {
 
     }
 }
-
 /**
  * 未完成
  */
